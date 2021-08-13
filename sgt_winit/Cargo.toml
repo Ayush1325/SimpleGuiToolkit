@@ -8,4 +8,3 @@ edition = "2018"
 [dependencies]
 winit = "0.25.0"
 futures = "0.3.16"
-sgt_core = { path = "../sgt_core" }

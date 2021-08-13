@@ -330,7 +330,6 @@ version = "0.1.0"
 dependencies = [
  "futures",
  "sgt_core",
- "sgt_winit",
 ]
 
 [[package]]
@@ -884,6 +883,7 @@ name = "sgt_core"
 version = "0.1.0"
 dependencies = [
  "futures",
+ "sgt_winit",
 ]
 
 [[package]]
@@ -891,7 +891,6 @@ name = "sgt_winit"
 version = "0.1.0"
 dependencies = [
  "futures",
- "sgt_core",
  "winit",
 ]
 
