@@ -1,21 +1,11 @@
-use futures::channel::{mpsc, oneshot};
+use futures::channel::oneshot;
+use sgt_core::window::{CustomEvents, WindowManager};
 use std::collections::HashMap;
 pub use winit::event_loop::EventLoopProxy;
 use winit::{
-    event_loop::{EventLoop, EventLoopClosed, EventLoopWindowTarget},
+    event_loop::{EventLoop, EventLoopWindowTarget},
     window::{Window, WindowId},
 };
-
-pub trait WindowManager<T>
-where
-    T: EventLoopSender<CustomEvents>,
-{
-    fn run(handler: Self, proxy_tx: oneshot::Sender<T>) -> !;
-}
-
-pub trait EventLoopSender<T> {
-    fn send(&self, event: T) -> Result<(), EventLoopError>;
-}
 
 #[derive(Debug, Default)]
 pub struct Winit {
@@ -99,25 +89,4 @@ impl WindowManager<EventLoopProxy<CustomEvents>> for Winit {
             }
         })
     }
-}
-
-impl<T> EventLoopSender<T> for EventLoopProxy<T> {
-    fn send(&self, event: T) -> Result<(), EventLoopError> {
-        self.send_event(event)?;
-        Ok(())
-    }
-}
-
-pub struct EventLoopError;
-
-impl<T> From<EventLoopClosed<T>> for EventLoopError {
-    fn from(_: EventLoopClosed<T>) -> Self {
-        EventLoopError
-    }
-}
-
-#[derive(Debug)]
-pub enum CustomEvents {
-    CreateNewWindow,
-    CloseWindow(WindowId),
 }

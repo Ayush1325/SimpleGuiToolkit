@@ -1,5 +1,5 @@
 use futures::channel::oneshot;
-use sgt_winit::{CustomEvents, EventLoopSender, WindowManager};
+use sgt_core::window::{CustomEvents, WindowManager};
 use std::thread;
 
 fn main() {
@@ -8,7 +8,7 @@ fn main() {
     thread::spawn(move || {
         futures::executor::block_on(async {
             if let Ok(x) = rx.await {
-                x.send(CustomEvents::CreateNewWindow);
+                x.send_event(CustomEvents::CreateNewWindow);
             }
         })
     });

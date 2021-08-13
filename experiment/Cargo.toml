@@ -7,4 +7,5 @@ edition = "2018"
 
 [dependencies]
 sgt_winit = { path="../sgt_winit" }
+sgt_core = { path="../sgt_core" }
 futures = { version="0.3", features=["executor"] }

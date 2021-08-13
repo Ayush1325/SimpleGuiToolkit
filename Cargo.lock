@@ -329,6 +329,7 @@ name = "experiment"
 version = "0.1.0"
 dependencies = [
  "futures",
+ "sgt_core",
  "sgt_winit",
 ]
 
@@ -879,10 +880,18 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f03b9878abf6d14e6779d3f24f07b2cfa90352cfec4acc5aab8f1ac7f146fae8"
 
 [[package]]
+name = "sgt_core"
+version = "0.1.0"
+dependencies = [
+ "futures",
+]
+
+[[package]]
 name = "sgt_winit"
 version = "0.1.0"
 dependencies = [
  "futures",
+ "sgt_core",
  "winit",
 ]
 

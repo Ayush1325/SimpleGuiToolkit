@@ -1,5 +1,6 @@
 [workspace]
 members = [
 	"sgt_winit",
+	"sgt_core",
 	"experiment",
 ]
