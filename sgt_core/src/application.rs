@@ -16,11 +16,11 @@ where
         Self { window_manager }
     }
 
-    pub fn run_common(handler: T) -> ! {
+    pub fn run_common(self) -> ! {
         use futures::channel::oneshot;
 
         let (tx, rx) = oneshot::channel();
 
-        T::run(handler, tx)
+        T::run(self.window_manager, tx)
     }
 }

@@ -3,5 +3,6 @@ use sgt_core::application;
 use std::thread;
 
 fn main() {
-    application::Application::run();
+    let application = application::Application::default();
+    application.run()
 }

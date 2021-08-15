@@ -1,6 +1,2 @@
 [workspace]
-members = [
-	"sgt_winit",
-	"sgt_core",
-	"experiment",
-]
+members = ["sgt_winit", "sgt_core", "sgt_wgpu", "experiment"]

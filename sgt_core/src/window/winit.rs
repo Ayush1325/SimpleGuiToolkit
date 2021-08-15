@@ -55,8 +55,14 @@ impl WindowManager for Winit {
 }
 
 impl Application<Winit> {
-    pub fn run() -> ! {
-        let winit_handler = Winit::default();
-        Self::run_common(winit_handler)
+    pub fn run(self) -> ! {
+        self.run_common()
+    }
+}
+
+impl Default for Application<Winit> {
+    fn default() -> Self {
+        let window_handler = Winit::default();
+        Self::new(window_handler)
     }
 }

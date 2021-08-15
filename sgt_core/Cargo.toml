@@ -8,7 +8,9 @@ edition = "2018"
 [dependencies]
 futures = { version = "0.3" }
 sgt_winit = { path = "../sgt_winit", optional = true }
+sgt_wgpu = { path = "../sgt_wgpu", optional = true }
 
 [features]
-default = ["winit"]
+default = ["winit", "wgpu"]
 winit = ["sgt_winit"]
+wgpu = ["sgt_wgpu"]
